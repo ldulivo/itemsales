@@ -4,7 +4,7 @@ import FormError from "../../components/form/FormError"
 
 import FormContentStyle from '../../styles/FormContent.module.css'
 
-export default function dashboard() {
+export default function Dashboard() {
 
     const [errors, setErrors] = useState({})
     const [newProduct, setNewProduct] = useState({
