@@ -1,0 +1,41 @@
+.section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 0 25px 0;
+}
+
+.section > div {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section > div header {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 2px;
+    font-weight: 200;
+}
+
+.section > div main {
+    width: 100%;
+    padding: 10px;
+    box-shadow: -1px 1px 4px 1px var(--dark);
+}
+
+.none {
+    background: transparent;
+}
+
+.section_container header {
+    background: white;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.section_container main {
+    background: white;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
