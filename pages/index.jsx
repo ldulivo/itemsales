@@ -26,7 +26,8 @@ export default function index({products}) {
 
 export async function getServerSideProps() {
 
-    const res = await fetch('http://localhost:3000/api/products');
+    //const res = await fetch('http://localhost:3000/api/products');
+    const res = await fetch('https://itemsales.vercel.app/api/products');
     const products = await res.json()
 
     return {
