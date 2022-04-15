@@ -3,7 +3,7 @@ import productsSchema from '../../../services/models/product.models'
 
 dbConnect();
 
-export default async (req, res) => {
+export default async function handler(req, res) {
 
     const { method, body, query: {id} } = req;
 
