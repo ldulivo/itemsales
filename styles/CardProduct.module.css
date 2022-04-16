@@ -20,3 +20,7 @@
 .CardProduct > div:hover {
     transform: scale(1.04);
 }
+
+.deactive {
+    opacity: .4;
+}

@@ -1,8 +1,14 @@
 :root {
+  --black: #151313;
   --primary: #eeeeee;
   --secondary: #fff;
   --dark: #dbdbdb;
   --alert: rgb(239, 155, 155);
+  --success: #9dcf48;
+  --danger: #e23e3e;
+  --info: #5ed5f5;
+  --warning: #fca120;
+
   --radius: 10px;
 }
 

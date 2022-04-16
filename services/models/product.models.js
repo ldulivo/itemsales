@@ -4,23 +4,35 @@ const product = new Schema({
     title: {
         type: String,
         required: [true, 'El título es requerido'],
-        unique: true,
+        unique: false,
         trim: true,
         maxlength: [40, 'El título puede tener un máximo de 40 caracteres']
     },
     description: {
         type: String,
-        required: true,
+        required: false,
         trim: true,
         maxlength: [200, 'Máximo de 200 caracteres']
     },
     price: {
         type: Number,
-        required: true
+        default: 0
     },
     stock: {
         type: Number,
-        required: true
+        default: 0
+    },
+    active: {
+        type: Boolean,
+        default: true
+    },
+    delete: {
+        type: Boolean,
+        default: false
+    },
+    category: {
+        type: String,
+        default: "uncategory"
     }
 }, {
     timestamps: true,

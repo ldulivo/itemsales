@@ -4,6 +4,8 @@ import SvgHome from "../components/svg/SvgHome";
 import SvgMaps from "../components/svg/SvgMaps";
 import SvgMenu from "../components/svg/SvgMenu";
 import SvgShopify from "../components/svg/SvgShopify";
+import SvgShopping from "../components/svg/SvgShopping";
+import SvgShoppingBag from "../components/svg/SvgShoppingBag";
 import styleLayout from "../styles/Layout.module.css";
 
 export default function Layout({children, home}) {
@@ -49,7 +51,7 @@ export default function Layout({children, home}) {
                     <p>Sobre mi</p>
                 </li>
                 <li className={styleLayout.shopify}>
-                    <SvgShopify color="#9dcf48"/>
+                    <SvgShoppingBag color="#9dcf48"/>
                     <p>Mi compra</p>
                 </li>
                 <li>

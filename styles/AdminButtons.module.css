@@ -1,0 +1,32 @@
+.AdminButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+}
+
+.AdminButtons button {
+    width: 17px;
+    height: 17px;
+    background: transparent;
+    border: none;
+}
+
+.AdminButtons button svg {
+    transition: all ease-in-out .1s;
+}
+
+.AdminButtons button:active svg {
+    stroke: var(--success);
+    transform: scale(1.5);
+}
+
+.view:active svg {
+    stroke: var(--info) !important;
+}
+
+.delete:active svg {
+    stroke: var(--danger) !important;
+}

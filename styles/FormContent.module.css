@@ -33,3 +33,17 @@
 .alert {
     border: 2px solid var(--alert) !important;
 }
+
+.FormContent form button {
+    background: var(--success);
+    border: none;
+    width: 95px;
+    height: 35px;
+    border-radius: var(--radius);
+    box-shadow: 3px 3px 5px -2px;
+}
+
+.FormContent form button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 5px -2px;
+}

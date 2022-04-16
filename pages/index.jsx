@@ -1,11 +1,12 @@
 import Image from "next/image"
 import CardProduct from "../components/CardProduct"
+import ClientsButtons from "../components/ClientsButtons"
 
 import Layout from "../layouts/Layout"
 import Section from "../layouts/Section"
 
 export default function index({products}) {
-    console.log(products)
+    
   return (
       <Layout home>
 
@@ -17,7 +18,10 @@ export default function index({products}) {
             white
             title="Sabores beer"
           >
-              <CardProduct products={products} />
+            <CardProduct
+                products={products}
+                controls="clients"
+            />
           </Section>
 
       </Layout>
@@ -26,8 +30,9 @@ export default function index({products}) {
 
 export async function getServerSideProps() {
 
-    //const res = await fetch('http://localhost:3000/api/products');
-    const res = await fetch('https://itemsales.vercel.app/api/products');
+    const URL = `${process.env.SERVER}/api/products`;
+
+    const res = await fetch(URL);
     const products = await res.json()
 
     return {

@@ -1,0 +1,35 @@
+.ClientsButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+}
+
+.ClientsButtons button {
+    width: 17px;
+    height: 17px;
+    background: transparent;
+    border: none;
+}
+
+.ClientsButtons button svg {
+    transition: all ease-in-out .1s;
+}
+
+.ClientsButtons button:active svg {
+    stroke: var(--success);
+    transform: scale(1.5);
+}
+
+.ClientsButtons input {
+    width: calc(100% - 52px);
+    border: none;
+    background: transparent;
+    text-align: center;
+}
+
+.less:active svg {
+    stroke: var(--alert) !important;
+}
