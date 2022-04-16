@@ -4,7 +4,7 @@ import CardProductStyle from '../styles/CardProduct.module.css';
 import AdminButtons from "./AdminButtons";
 import ClientsButtons from "./ClientsButtons";
 
-export default function CardProduct({products, controls, URL}) {
+export default function CardProduct({products, controls, URL, listRefresh}) {
   return (
     <div className={CardProductStyle.CardProduct}>
     {
@@ -28,6 +28,7 @@ export default function CardProduct({products, controls, URL}) {
                       id={product._id}
                       active={product.active}
                       URL={URL}
+                      listRefresh={listRefresh}
                     />
                   : <ClientsButtons/>
               }

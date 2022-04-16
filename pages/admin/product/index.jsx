@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import CardProduct from "../../../components/CardProduct";
 
 import Section from "../../../layouts/Section";
@@ -6,6 +7,14 @@ import Section from "../../../layouts/Section";
 import ProductsIndexStyle from '../../../styles/ProductsIndex.module.css';
 
 export default function ProductsIndex({URL, products}) {
+    const [newProducts, setNewProducts] = useState(products)
+
+    const listRefresh = async() => {
+        const resProducts = await fetch(`${URL}/api/products/index_all`);
+        const products = await resProducts.json();
+        setNewProducts(products);
+    }
+
   return (
     <div className={ProductsIndexStyle.ProductsIndex}>
 
@@ -14,12 +23,13 @@ export default function ProductsIndex({URL, products}) {
         title="Productos"
         >
         {
-            (products.length > 0)
+            (newProducts.length > 0)
               ? 
                 <CardProduct
-                    products={products}
+                    products={newProducts}
                     controls="admin"
                     URL={URL}
+                    listRefresh={listRefresh}
                 />
               : <p>No hay datos para mostrar</p>
         }

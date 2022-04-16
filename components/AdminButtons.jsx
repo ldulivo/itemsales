@@ -4,30 +4,57 @@ import SvgEdit from './svg/SvgEdit'
 import SvgTrash from './svg/SvgTrash'
 import SvgView from './svg/SvgView'
 
-/**
- * function active or deactive product
- */
 
-const activeDeactive = async (id, active, URL) => {
-  const PostURL = `${URL}/api/products/${id}`;
-
-  try {
-      await fetch(PostURL, {
-          method: 'PUT',
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({"active": !active})
-      })
-  } catch (error) {
-      console.error(error);
+export default function AdminButtons({id, active, URL, listRefresh}) {
+  
+  /**
+   * function delete product (state delete = false)
+   */
+  
+  const deleteProduct = async (id) => {
+    const newURL = `${URL}/api/products/${id}`;
+  
+    try {
+        await fetch(newURL, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({"delete": true})
+        })
+    } catch (error) {
+        console.error(error);
+    }
+    listRefresh(); //function refresh list
   }
-}
+  
+  /**
+   * function active or deactive product
+   */
+  
+  const activeDeactive = async (id, active) => {
+    const newURL = `${URL}/api/products/${id}`;
+  
+    try {
+        await fetch(newURL, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({"active": !active})
+        })
+    } catch (error) {
+        console.error(error);
+    }
+    listRefresh(); //function refresh list
+  }
 
-export default function AdminButtons({id, active, URL}) {
+  /**
+   * Return view buttons
+   */
   return (
     <div className={AdminButtonsStyles.AdminButtons}>
-        <button className={AdminButtonsStyles.view} onClick={ () => activeDeactive(id, active, URL)}>
+        <button className={AdminButtonsStyles.view} onClick={ () => activeDeactive(id, active)}>
             <SvgView />
         </button>
 
@@ -35,7 +62,7 @@ export default function AdminButtons({id, active, URL}) {
             <SvgEdit />
         </button>
 
-        <button className={AdminButtonsStyles.delete}>
+        <button className={AdminButtonsStyles.delete} onClick={ () => deleteProduct(id)}>
             <SvgTrash />
         </button>
     </div>
