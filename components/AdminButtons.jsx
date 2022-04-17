@@ -5,7 +5,7 @@ import SvgTrash from './svg/SvgTrash'
 import SvgView from './svg/SvgView'
 
 
-export default function AdminButtons({id, active, URL, listRefresh}) {
+export default function AdminButtons({id, active, URL, listRefresh, openClosePopUp, setEditPopUp, product}) {
   
   /**
    * function delete product (state delete = false)
@@ -49,6 +49,11 @@ export default function AdminButtons({id, active, URL, listRefresh}) {
     listRefresh(); //function refresh list
   }
 
+  const edit = () => {
+    setEditPopUp(true);
+    openClosePopUp(product);
+  }
+
   /**
    * Return view buttons
    */
@@ -58,7 +63,7 @@ export default function AdminButtons({id, active, URL, listRefresh}) {
             <SvgView />
         </button>
 
-        <button>
+        <button onClick={ () => edit()}>
             <SvgEdit />
         </button>
 
