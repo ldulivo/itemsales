@@ -12,7 +12,7 @@ export default function Dashboard({URL, products}) {
             title="Resumen"
           >
               <Link
-                href='http://localhost:3000/admin/product'
+                href={`${URL}/admin/product`}
               >
                   <a>
                     <p>Productos: <span>{products}</span></p>
