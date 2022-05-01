@@ -1,6 +1,6 @@
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
-export default function Test() {
+export default function Test () {
   return (
     <div>
         <h1>test</h1>

@@ -1,13 +1,12 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import Section from "../../layouts/Section";
+import Section from '../../layouts/Section'
 
-export default function Dashboard({URL, products}) {
-
+export default function Dashboard ({ URL, products }) {
   return (
     <div>
         <h2>dashboard</h2>
-        <Section 
+        <Section
             white
             title="Resumen"
           >
@@ -23,18 +22,16 @@ export default function Dashboard({URL, products}) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps () {
+  const URL = process.env.SERVER
 
-    const URL = process.env.SERVER;
+  const resProducts = await fetch(`${URL}/api/products/count`)
+  const products = await resProducts.json()
 
-    const resProducts = await fetch(`${URL}/api/products/count`);
-    const products = await resProducts.json();
-
-
-    return {
-        props: {
-            URL,
-            products
-        }
+  return {
+    props: {
+      URL,
+      products
     }
+  }
 }
