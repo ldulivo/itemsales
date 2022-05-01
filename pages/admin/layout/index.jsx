@@ -3,12 +3,10 @@ import React, { useState } from 'react'
 export default function index ({ URL }) {
   console.log('URL', URL)
   const [myLayout, setMyLayout] = useState([])
-  // let myA = []
   const leer = async () => {
-    const res = await fetch('http://192.168.1.34:3000/api/layout/load')
+    // const res = await fetch('http://192.168.1.34:3000/api/layout/load')
+    const res = await fetch(`${URL}/api/layout/load`)
     const myRes = await res.json()
-    // myA = myRes.layout
-    // console.log('myLayout', myA)
     setMyLayout(myRes.layout)
     console.log('myLayout', myLayout)
   }
@@ -56,9 +54,6 @@ export default function index ({ URL }) {
       <button onClick={() => crear()}>crear archivo</button>
       <br />
       <button onClick={() => leer()}>leer</button>
-      {/* <div>
-        { (myLayout.length === 0) ? 'No hay datos para mostrar' : myLayout.map(l => <p key={l.id}>{l}</p>) }
-      </div> */}
 
       <div>
         {
