@@ -63,8 +63,8 @@ export default function index ({ URL }) {
       <div>
         {
           (myLayout.length > 0)
-          ? myLayout.map(layout => <p key={layout.id}>{ layout.title }</p>)
-          : 'menor que cero'
+            ? myLayout.map(layout => <p key={layout.id}>{ layout.title }</p>)
+            : 'menor que cero'
         }
       </div>
 
