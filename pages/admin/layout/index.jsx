@@ -12,7 +12,8 @@ export default function index ({ URL }) {
   }
 
   const crear = async () => {
-    const PostURL = 'http://192.168.1.34:3000/api/layout/save'
+    // const PostURL = 'http://192.168.1.34:3000/api/layout/save'
+    const PostURL = `${URL}/api/layout/save`
     const createLayout = {
       layout:
       [
