@@ -5,6 +5,7 @@ module.exports = {
     node: true
   },
   extends: [
+    'plugin:@next/next/recommended',
     'plugin:react/recommended',
     'standard'
   ],
