@@ -2,7 +2,7 @@ const fs = require('fs')
 /* const { v4: uuidv4 } = require('uuid') */
 /* import { v4 as uuidv4 } from 'uuid'; */
 
-const fileLayout = 'config/layout.json'
+const fileLayout = 'layout.json'
 
 const saveLayout = (data = []) => {
   fs.writeFileSync(fileLayout, JSON.stringify(data))
