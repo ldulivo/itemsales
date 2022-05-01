@@ -1,4 +1,4 @@
-export default function FormError({err}) {
+export default function FormError ({ err }) {
   return (
       <>
           {

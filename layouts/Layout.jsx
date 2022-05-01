@@ -1,14 +1,14 @@
-import Head from "next/head";
-import SvgBeer from "../components/svg/SvgBeer";
-import SvgHome from "../components/svg/SvgHome";
-import SvgMaps from "../components/svg/SvgMaps";
-import SvgMenu from "../components/svg/SvgMenu";
-import SvgShopify from "../components/svg/SvgShopify";
-import SvgShopping from "../components/svg/SvgShopping";
-import SvgShoppingBag from "../components/svg/SvgShoppingBag";
-import styleLayout from "../styles/Layout.module.css";
+import Head from 'next/head'
+import SvgBeer from '../components/svg/SvgBeer'
+import SvgHome from '../components/svg/SvgHome'
+import SvgMaps from '../components/svg/SvgMaps'
+import SvgMenu from '../components/svg/SvgMenu'
+/* import SvgShopify from '../components/svg/SvgShopify'
+import SvgShopping from '../components/svg/SvgShopping' */
+import SvgShoppingBag from '../components/svg/SvgShoppingBag'
+import styleLayout from '../styles/Layout.module.css'
 
-export default function Layout({children, home}) {
+export default function Layout ({ children, home }) {
   return (
     <div className={styleLayout.layout}>
         <Head>
@@ -27,8 +27,8 @@ export default function Layout({children, home}) {
             <header>
                 {
                     (home)
-                        ? <h1>Romeo Beer</h1>
-                        : <h1>No home</h1>
+                      ? <h1>Romeo Beer</h1>
+                      : <h1>No home</h1>
                 }
             </header>
             <main>

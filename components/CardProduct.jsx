@@ -1,27 +1,26 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import CardProductStyle from '../styles/CardProduct.module.css';
-import AdminButtons from "./AdminButtons";
-import ClientsButtons from "./ClientsButtons";
-import NewItem from "./NewItem";
+import CardProductStyle from '../styles/CardProduct.module.css'
+import AdminButtons from './AdminButtons'
+import ClientsButtons from './ClientsButtons'
+import NewItem from './NewItem'
 
-export default function CardProduct({products, controls, URL, listRefresh, openClosePopUp, setEditPopUp}) {
-  
+export default function CardProduct ({ products, controls, URL, listRefresh, openClosePopUp, setEditPopUp }) {
   return (
     <div className={CardProductStyle.CardProduct}>
     {
-      (controls === "admin")
+      (controls === 'admin')
         ? <NewItem openClosePopUp={openClosePopUp} setEditPopUp={setEditPopUp}/>
         : null
     }
 
     {
-        products.map( product => 
-          <div 
-            key={product._id} 
+        products.map(product =>
+          <div
+            key={product._id}
             className={product.active ? null : CardProductStyle.deactive}
           >
-              <Image 
+              <Image
                   src='/assets/img/001.jpg'
                   alt="Cerveza Artezanal"
                   width={100}
@@ -31,8 +30,8 @@ export default function CardProduct({products, controls, URL, listRefresh, openC
               <span>{`$${product.price}`}</span>
               <p>{product.description}</p>
               {
-                (controls === "admin")
-                  ? <AdminButtons 
+                (controls === 'admin')
+                  ? <AdminButtons
                       id={product._id}
                       active={product.active}
                       URL={URL}
@@ -43,7 +42,7 @@ export default function CardProduct({products, controls, URL, listRefresh, openC
                     />
                   : <ClientsButtons/>
               }
-          </div> )
+          </div>)
     }
     </div>
   )

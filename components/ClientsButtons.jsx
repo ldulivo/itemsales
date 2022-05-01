@@ -2,7 +2,7 @@ import clientsButtonsStyles from '../styles/ClientsButtons.module.css'
 import SvgAdd from './svg/SvgAdd'
 import SvgLess from './svg/SvgLess'
 
-export default function ClientsButtons() {
+export default function ClientsButtons () {
   return (
     <div className={clientsButtonsStyles.ClientsButtons}>
         <button className={clientsButtonsStyles.less}>
