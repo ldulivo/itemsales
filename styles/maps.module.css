@@ -1,0 +1,8 @@
+.leaflet_container {
+    width: 100vw;
+    height: 512px;
+}
+
+.leaflet-bottom {
+    display: none !important;
+}

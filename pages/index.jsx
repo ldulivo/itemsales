@@ -1,12 +1,11 @@
-import Image from "next/image"
-import CardProduct from "../components/CardProduct"
-import ClientsButtons from "../components/ClientsButtons"
+/* import Image from 'next/image' */
+import CardProduct from '../components/CardProduct'
+/* import ClientsButtons from '../components/ClientsButtons' */
 
-import Layout from "../layouts/Layout"
-import Section from "../layouts/Section"
+import Layout from '../layouts/Layout'
+import Section from '../layouts/Section'
 
-export default function index({products}) {
-    
+export default function index ({ products }) {
   return (
       <Layout home>
 
@@ -14,13 +13,13 @@ export default function index({products}) {
               sección pura
           </Section>
 
-          <Section 
+          <Section
             white
-            title="Sabores beer"
+            title='Sabores beer'
           >
             <CardProduct
                 products={products}
-                controls="clients"
+                controls='clients'
             />
           </Section>
 
@@ -28,16 +27,15 @@ export default function index({products}) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps () {
+  const URL = `${process.env.SERVER}/api/products`
 
-    const URL = `${process.env.SERVER}/api/products`;
+  const res = await fetch(URL)
+  const products = await res.json()
 
-    const res = await fetch(URL);
-    const products = await res.json()
-
-    return {
-        props: {
-            products
-        }
+  return {
+    props: {
+      products
     }
+  }
 }

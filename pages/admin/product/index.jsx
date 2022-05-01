@@ -1,44 +1,42 @@
-import Link from "next/link";
-import { useState } from "react";
-import CardProduct from "../../../components/CardProduct";
-import PopUp from "../../../components/PopUp";
+/* import Link from 'next/link' */
+import { useState } from 'react'
+import CardProduct from '../../../components/CardProduct'
+import PopUp from '../../../components/PopUp'
 
-import Section from "../../../layouts/Section";
+import Section from '../../../layouts/Section'
 
-import ProductsIndexStyle from '../../../styles/ProductsIndex.module.css';
+import ProductsIndexStyle from '../../../styles/ProductsIndex.module.css'
 
-export default function ProductsIndex({URL, products}) {
-    
-    const [newPopUp, setNewPopUp] = useState(false)
-    const [editPopUp, setEditPopUp] = useState(false)
-    const [editProduct, setEditProduct] = useState({})
-    const [newProducts, setNewProducts] = useState(products)
+export default function ProductsIndex ({ URL, products }) {
+  const [newPopUp, setNewPopUp] = useState(false)
+  const [editPopUp, setEditPopUp] = useState(false)
+  const [editProduct, setEditProduct] = useState({})
+  const [newProducts, setNewProducts] = useState(products)
 
-    const listRefresh = async() => {
-        const resProducts = await fetch(`${URL}/api/products/index_all`);
-        const products = await resProducts.json();
-        setNewProducts(products);
-    }
+  const listRefresh = async () => {
+    const resProducts = await fetch(`${URL}/api/products/index_all`)
+    const products = await resProducts.json()
+    setNewProducts(products)
+  }
 
-    const openClosePopUp = (product={}) => {
-        console.log(product)
-        setNewPopUp(!newPopUp)
-        setEditProduct(product);
-    }
+  const openClosePopUp = (product = {}) => {
+    console.log(product)
+    setNewPopUp(!newPopUp)
+    setEditProduct(product)
+  }
 
   return (
     <div className={ProductsIndexStyle.ProductsIndex}>
 
-        <Section 
+        <Section
         white
-        title="Productos"
+        title='Productos'
         >
         {
             (newProducts.length > 0)
-              ? 
-                <CardProduct
+              ? <CardProduct
                     products={newProducts}
-                    controls="admin"
+                    controls='admin'
                     URL={URL}
                     listRefresh={listRefresh}
                     openClosePopUp={openClosePopUp}
@@ -46,38 +44,35 @@ export default function ProductsIndex({URL, products}) {
                 />
               : <p>No hay datos para mostrar</p>
         }
-        
+
         </Section>
 
         {
-            newPopUp 
-                ? <PopUp 
-                    openClosePopUp={openClosePopUp} 
-                    URL={URL} 
-                    listRefresh={listRefresh} 
-                    edit={editPopUp} 
+            newPopUp
+              ? <PopUp
+                    openClosePopUp={openClosePopUp}
+                    URL={URL}
+                    listRefresh={listRefresh}
+                    edit={editPopUp}
                     editProduct={editProduct}
-                /> 
-                : null
+                />
+              : null
         }
-        
 
     </div>
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps () {
+  const URL = process.env.SERVER
 
-    const URL = process.env.SERVER;
+  const resProducts = await fetch(`${URL}/api/products/index_all`)
+  const products = await resProducts.json()
 
-    const resProducts = await fetch(`${URL}/api/products/index_all`);
-    const products = await resProducts.json();
-
-
-    return {
-        props: {
-            URL,
-            products
-        }
+  return {
+    props: {
+      URL,
+      products
     }
+  }
 }
